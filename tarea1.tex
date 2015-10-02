@@ -1,0 +1,242 @@
+\documentclass[oneside]{book}
+\usepackage{braket}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{algpseudocode} 
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for the inclusion of images
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\usepackage{float}
+\usepackage{makeidx}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale = 0.42]{lcaoderecha}
+%	\caption{Eletr\'on ligado solo al núcleo derecho}
+%	\label{fig1}
+%	\end{figure}
+
+
+
+
+\begin{document}
+%\tableofcontents
+%\pagebreak
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+\textsc{\LARGE ELECTRODYNAMICS}\\[0.5cm]
+\textsc{\LARGE HOMEWORK \# 1}\\[0.5cm]
+\textsc{\large Lucas Varela Álvarez \\ 201226169}\\[0.5cm]
+\end{center}
+
+
+\textbf{1. Prove:}
+
+
+\begin{equation}
+\label{0}\nabla \times (\nabla \times \vec{G}) = \nabla (\nabla \cdot \vec{G}) - \nabla^2 \vec{G}
+\end{equation}
+
+\textbf{Proof:}
+
+
+
+
+
+\begin{equation}
+\label{1}[\nabla \times (\nabla \times \vec{G})]_i =  \epsilon_{ijk} \partial_j (\nabla \times \vec{G})_k
+\end{equation}
+
+
+To prove this it is useful to look at it by components (\ref{1}).
+\begin{equation}
+\label{2} (\nabla \times \vec{G})_k = \epsilon_{km\ell} \partial_m G_{\ell}
+\end{equation}
+
+
+
+\begin{equation}
+\label{3}\epsilon_{ijk} \partial_j (\nabla \times \vec{G})_k =  \epsilon_{ijk} \partial_j  \epsilon_{km\ell} \partial_m G_{\ell} = \epsilon_{ijk}  \epsilon_{km\ell}  \partial_j   \partial_m G_{\ell} 
+\end{equation}
+
+Using the identity (\ref{2}) and introducing it in (\ref{1}) follows (\ref{3}) using the fact that scalar commute.
+
+\begin{equation}
+\label{4}\epsilon_{ijk}  \epsilon_{km\ell} = \delta_{im} \delta_{j\ell} - \delta_{i \ell} \delta_{jm}
+\end{equation}
+
+
+
+
+\begin{equation}
+\label{5}\epsilon_{ikj}  \epsilon_{km\ell}  \partial_j   \partial_m G_{\ell} = \delta_{im} \delta_{j\ell}  \partial_j   \partial_m G_{\ell} -   \delta_{i \ell} \delta_{jm} \partial_j   \partial_m G_{\ell} = \partial_{\ell} \partial_{i} G_{\ell} - \partial_{m} \partial_{m} G_{i}
+\end{equation}
+
+With the aide of the identity (\ref{4}) and introducing it in equation (\ref{3}), it follows expression (\ref{5}).
+
+
+
+
+\begin{equation}
+\label{6} \partial_{\ell} \partial_{i} G_{\ell} - \partial_{m} \partial_{m} G_{i} =   \partial_{i}\partial_{\ell} G_{\ell} - \partial_{m} \partial_{m} G_{i} 
+\end{equation}
+
+Clairaut's theorem allows to exchange the order of derivatives in line (\ref{6}). 
+
+
+
+\begin{equation}
+\label{7}  \partial_{i}\partial_{\ell} G_{\ell} - \partial_{m} \partial_{m} G_{i} =  \partial_{i} \nabla \cdot \vec{G} - \nabla^2 G_{i}
+\end{equation}
+
+\begin{equation}
+\label{8}  \nabla \times (\nabla \times \vec{G}) = \nabla (\nabla \cdot \vec{G}) - \nabla^2 \vec{G}
+\end{equation}
+
+Using the fact that $\partial_{\ell} G_{\ell} =  \nabla \cdot \vec{G} $ and $  \partial_{m} \partial_{m} = \nabla^2 $ follows equation (\ref{7}). It is seen from (\ref{7}) that (\ref{8}) is the vector with components (\ref{1}). With proofs the identity (\ref{0}).\\
+
+
+
+
+\textbf{2. Prove:}
+
+
+\begin{equation}
+\label{9} \nabla (\vec{F} \cdot \vec{G}) = (\vec{F} \cdot \nabla) \vec{G} + (\vec{G} \cdot \nabla)\vec{F} + \vec{F} \times (\nabla \times \vec{G}) + \vec{G} \times (\nabla \times \vec{F})
+\end{equation}
+
+\textbf{Proof:}
+
+
+\begin{equation}
+\label{10} [\vec{F} \times (\nabla \times \vec{G})]_i = \epsilon_{ijk} F_j (\nabla \times \vec{G})_k =\epsilon_{ijk} \epsilon_{km\ell} F_j \partial_m G_{\ell}
+\end{equation}
+
+\begin{equation}
+\label{11} =( \delta_{im} \delta_{j\ell} - \delta_{i \ell} \delta_{jm} ) F_j \partial_m G_{\ell} =( \partial_i G_{\ell} )F_{\ell} - F_{m} \partial_{m} G_i = ( \partial_i G_{\ell} )F_{\ell} - (\vec{F} \cdot \nabla) G_i
+\end{equation}
+
+\begin{equation}
+\label{12}  ( \partial_i G_{\ell} )F_{\ell} = [\vec{F} \times (\nabla \times \vec{G})]_i +  (\vec{F} \cdot \nabla) G_i
+\end{equation}
+
+First it is useful to find the relation given by equation (\ref{12}) which follows using by examining the components of the vector $\vec{F} \times (\nabla \times \vec{G})$.
+
+
+\begin{equation}
+\label{13}  ( \partial_i F_{\ell} )G_{\ell} = [\vec{G} \times (\nabla \times \vec{F})]_i +  (\vec{G} \cdot \nabla) F_i
+\end{equation}
+
+As the procedure done to obtain relation (\ref{12}) was done using arbitrary vector functions, the labels can be exchanged ( $G\longrightarrow F$) and the identity (\ref{13}) follows automatically.
+
+
+
+
+\begin{equation}
+\label{14} [\nabla (\vec{F} \cdot \vec{G})]_i = \partial_i (F_j G_j) = ( \partial_i G_{\ell} )F_{\ell} + ( \partial_i F_{\ell} )G_{\ell}
+\end{equation}
+
+Equation (\ref{14})  follows from looking at the components of the vector $\nabla (\vec{F} \cdot \vec{G})$ and computing the derivative by means of the product rule.
+
+
+
+
+\begin{equation}
+\label{15} [\nabla (\vec{F} \cdot \vec{G})]_i = \partial_i (F_j G_j) =  [\vec{F} \times (\nabla \times \vec{G})]_i +  (\vec{F} \cdot \nabla) G_i   + [\vec{G} \times (\nabla \times \vec{F})]_i +  (\vec{G} \cdot \nabla) F_i
+\end{equation}
+
+Introducing the relations (\ref{12}) and (\ref{13}) in (\ref{14}) i get expression (\ref{15}). From expression (\ref{15}) it can be seen that follows equation (\ref{9}).\\
+
+
+\textbf{3. Prove:}
+
+
+\begin{equation}
+\label{16} \int_V (\phi \nabla^2 \psi + \nabla \phi \cdot \nabla \psi ) d^3 x = \oint_{\partial V} \phi \nabla \psi \cdot \hat{n} dA 
+\end{equation}
+
+
+\textbf{Proof:}
+
+\begin{equation}
+\label{17}   \nabla \cdot (\phi \nabla \psi) =\phi \nabla^2 \psi + \nabla \phi \cdot \nabla \psi
+\end{equation}
+
+To prove relation (\ref{16}) it suffices to show that the identity (\ref{17}) holds. Then using the divergence theorem relation (\ref{16}) follows.
+
+
+\begin{equation}
+\label{18}   \nabla \cdot (\phi \nabla \psi) = \partial_i (\phi \partial_i \psi) = \partial_i \phi (\partial_i \psi) +  \phi \partial_i \partial_i \psi = \nabla \phi \cdot \nabla \psi+  \phi \nabla^2 \psi 
+\end{equation}
+
+
+\begin{equation}
+\label{19} \int_V (\phi \nabla^2 \psi + \nabla \phi \cdot \nabla \psi ) d^3 x = \int_V \nabla \cdot (\phi \nabla \psi)  d^3 x = \oint_{\partial V} \phi \nabla \psi \cdot \hat{n} dA 
+\end{equation}\\
+
+\textbf{4. Prove:}
+
+
+\begin{equation}
+\label{20} \int_V f (\nabla \cdot \vec{F}) d^3 x = \oint_{\partial V} f \vec{F}  \cdot \hat{n}\; dA - \int_V \vec{F} \cdot \nabla f\; d^3 x 
+\end{equation}
+
+
+\textbf{Proof:}
+
+
+\begin{equation}
+\label{21}   \nabla \cdot (f \vec{F}) =  f \nabla \cdot \vec{F} + \vec{F} \cdot \nabla f
+\end{equation}
+
+To prove (\ref{20}) first I prove (\ref{21}).
+
+\begin{equation}
+\label{22}   \nabla \cdot (f \vec{F}) =  \partial_i (f F_i) = F_i \partial_i f + f \partial_i F_i = \vec{F} \cdot \nabla f + f \nabla \cdot \vec{F}
+\end{equation}
+
+
+\begin{equation}
+\label{23}  f \nabla \cdot \vec{F} = \nabla \cdot (f \vec{F}) -\vec{F} \cdot \nabla f 
+\end{equation}
+
+Equation (\ref{22}) is computed using the product rule for derivatives. Relation (\ref{23}) rearranges the terms of (\ref{22}) leaving a relation for the term of interest, $ f \nabla \cdot \vec{F}$.
+\begin{equation}
+\label{24} \int_V f \nabla \cdot \vec{F} d^3 x =\int_V \nabla \cdot (f \vec{F})d^3 x  - \int_V \vec{F} \cdot \nabla f d^3 x 
+\end{equation}
+
+\begin{equation}
+\label{25} \int_V \nabla \cdot (f \vec{F})d^3 x  = \oint_{\partial V} f \vec{F}  \cdot \hat{n}\; dA 
+\end{equation}
+
+\begin{equation}
+\label{26} \int_V f \nabla \cdot \vec{F} d^3 x = \oint_{\partial V} f \vec{F}  \cdot \hat{n}\; dA   - \int_V \vec{F} \cdot \nabla f d^3 x 
+\end{equation}
+
+Using the identity (\ref{23}) and the divergence theorem follows relation (\ref{26}). This was the desired relation.
+
+
+\end{document}

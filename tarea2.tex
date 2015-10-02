@@ -1,0 +1,237 @@
+\documentclass[oneside]{book}
+\usepackage{braket}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{algpseudocode} 
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for the inclusion of images
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\usepackage{float}
+\usepackage{makeidx}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale = 0.42]{lcaoderecha}
+%	\caption{Eletr\'on ligado solo al núcleo derecho}
+%	\label{fig1}
+%	\end{figure}
+
+
+
+
+\begin{document}
+%\tableofcontents
+%\pagebreak
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+\textsc{\LARGE ELECTRODYNAMICS}\\[0.5cm]
+\textsc{\LARGE HOMEWORK }\\[0.5cm]
+\textsc{\large Lucas Varela Álvarez \\ 201226169}\\[0.5cm]
+\end{center}
+
+
+\textbf{I Prove the identity } $\partial^{\alpha} F^{\beta \gamma} + \partial^{\beta} F^{ \gamma \alpha} + \partial^{\gamma} F^{\alpha \beta } = 0$\\
+
+\textbf{Solution:}\\
+
+Using the representation of $F$ in term of the four-potential:
+
+\begin{equation}
+\label{1} F^{\mu \nu} = \partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}
+\end{equation}
+
+
+Follows that
+
+\begin{eqnarray}
+\partial^{\alpha} F^{\beta \gamma}   = \partial^{\alpha}\partial^{\beta} A^{\gamma} - \partial^{\alpha}\partial^{\gamma} A^{\beta} \\
+\partial^{\beta} F^{ \gamma \alpha}   = \partial^{\beta}\partial^{\gamma} A^{\alpha} - \partial^{\beta}\partial^{\alpha} A^{\gamma} \\
+\partial^{\gamma} F^{ \alpha \beta}   = \partial^{\gamma}\partial^{\alpha} A^{\beta} - \partial^{\gamma}\partial^{\beta} A^{\alpha} 
+\end{eqnarray}
+
+
+Using the Clairaut's theorem for second derivatives follows:
+
+
+
+
+\begin{eqnarray}
+\partial^{\beta} F^{ \gamma \alpha}   = \partial^{\beta}\partial^{\gamma} A^{\alpha} -\partial^{\alpha} \partial^{\beta} A^{\gamma} \\
+\partial^{\gamma} F^{ \alpha \beta}   =\partial^{\alpha} \partial^{\gamma} A^{\beta} - \partial^{\beta}\partial^{\gamma} A^{\alpha} 
+\end{eqnarray}
+
+
+
+Then we have:
+
+
+\begin{equation}
+\label{12} \partial^{\beta} F^{ \gamma \alpha} + \partial^{\gamma} F^{ \alpha \beta} = \partial^{\alpha} \partial^{\gamma} A^{\beta} - \partial^{\alpha} \partial^{\beta} A^{\gamma} = -\partial^{\alpha} F^{\beta \gamma} 
+\end{equation}
+
+Passing the right term to the left side of the equality follows the desired identity:
+
+
+\begin{equation}
+\label{13}  \partial^{\alpha} F^{\beta \gamma}  +\partial^{\beta} F^{ \gamma \alpha} + \partial^{\gamma} F^{ \alpha \beta}  = 0
+\end{equation}
+
+
+\textbf{II We can define the proper acceleration as}
+
+\begin{equation}
+\label{II} \alpha^{\mu} = \frac{d \eta^{\mu}}{d\tau} = \frac{d^2 x^{\mu}}{d\tau^2}
+\end{equation}
+
+
+\textbf{Compute, (a) $\eta^{\mu} \alpha_{\mu}$ (b) $K^{\mu} \eta_{\mu}$, where $K^{\mu} = d_p{\mu} / d\tau$ is the Minkowski force. }\\
+
+
+\textbf{Solution:}\\
+
+
+\textbf{(a)} First notice that the product can be expressed as follows:
+
+\begin{equation}
+\label{a} \eta^{\mu} \alpha_{\mu} = \frac{1}{2} \frac{d(\eta^{\mu}\eta_{\mu})}{d\tau} 
+\end{equation}
+
+The product $\eta^{\mu}\eta_{\mu} =c^2 $ is a constant, then it follows that this derivative vanishes.
+
+\begin{equation}
+\label{a2} \eta^{\mu} \alpha_{\mu} = 0 
+\end{equation}
+
+
+\textbf{(b)} As the four-momentum is simply $ p^{\mu} = m \eta^{\mu} $, it follows that $K^{\mu} = m \alpha^{\mu}$. Using the previous result the product is zero.
+
+\begin{equation}
+\label{b1} K^{\mu} \eta_{\mu}  = 0 
+\end{equation}
+
+
+\textbf{III A train with proper length $L$ moves at speed c/2 with respect to the ground. A ball is thrown from the back to the front, at speed c/3 with respect to the train. How much time does this take and what distance does the ball cover, in:\\
+	(i) The train frame?\\
+	(ii) The ground frame?\\
+	(iii) The ball frame?\\
+	(iv) Show that the invariant interval is indeed the same in all three frames.\\
+	(v) Show that the times in the ball frame and ground frame are related by the relevant $\gamma$ factor. \\
+	(vi) Show that the times in the train frame and ground frame are not related by the relevant $\gamma$ factor. Why not?	
+	}\\
+
+\textbf{Solution: }\\
+
+\textbf{(i)} In the train frame we have the following:
+
+\begin{equation}
+\label{i} t = \frac{L}{c/3} = 3\frac{L}{c}
+\end{equation}
+
+
+
+\begin{equation}
+\label{i2} L = L 
+\end{equation}
+The time is the length traveled(which is the proper length of the train) divided by the speed of the ball.\\
+
+\textbf{(ii)} Using the Lorentz transformation we have:
+
+
+\begin{equation}
+\label{ii} t = \gamma\left(t' + \frac{v_x x'}{c^2}\right)  
+\end{equation}
+
+\begin{equation}
+\label{ii2} x = \gamma\left(x' + v_x t'\right)  
+\end{equation}
+
+In the train frame, $x'=L$ and $t' = 3L/c$. The relative velocity between the ground and the train is $v_x= c/2 $, then $\gamma = 2/\sqrt{3}$. Then 
+
+
+\begin{equation}
+\label{ii3} t = \frac{7L}{\sqrt{3}c}  
+\end{equation}
+
+\begin{equation}
+\label{ii4} x = \frac{5L}{\sqrt{3}}  
+\end{equation}
+
+
+\textbf{(iii)} For the time we use equation (\ref{ii}), but with $v_x= -c/3$ and $\gamma = 3/\sqrt{8}$. Then
+
+\begin{equation}
+\label{iii} t = \sqrt{8} \frac{L}{c}
+\end{equation}
+
+The distance covered by the ball is zero.\\
+
+
+\textbf{(iv)} The invariant interval is given by the following equation:
+
+
+\begin{equation}
+\label{iv} (\Delta s)^2 = (c \Delta t)^2 - (\Delta x)^2
+\end{equation}
+
+Using the subindex T,G,B for train, ground and ball respectively:
+
+\begin{eqnarray}
+\Delta s_T =  \left( 3L \right)^2 - \left(L\right)^2 = 8 L^2\\
+\Delta s_G =  \left( \frac{7L}{\sqrt{3}} \right)^2 - \left(\frac{5L}{\sqrt{3}}\right)^2 = 8 L^2\\
+\Delta s_B =  \left( \sqrt{8}L \right)^2 - \left(0\right)^2 = 8 L^2
+ \end{eqnarray}
+
+
+\textbf{(v)} The relative velocity between the ball frame and the ground frame is calculated using the velocity addition formula:
+
+\begin{equation}
+	\label{v}  u' = \frac{u + v}{1+ \frac{uv}{c^2}}
+\end{equation}
+
+Here $v=c/2$ is the relative between the train frame and ground frame and $u=c/3$ is the velocity of the ball seen in the train frame. Then $u'= 5/7$ is the relative velocity between the ball and the ground frame. The gamma factor for $u'$ is $\gamma = 7/\sqrt{24} $. Then:
+
+
+\begin{equation}
+\label{v1} t_G = \frac{7L}{\sqrt{3}c} =\frac{7L}{\sqrt{3}c} \frac{\sqrt{8}}{\sqrt{8}} = \left(\sqrt{8}\frac{L}{c}\right) \left(\frac{7}{\sqrt{24}}\right) = t_B \gamma
+\end{equation}
+
+Then:
+
+
+\begin{equation}
+\label{v2} t_G= \gamma t_B 
+\end{equation}
+
+
+\textbf{(vi)} The relevant gamma factor is given by $\gamma = 2/\sqrt{3}$ as calculated in (ii). To show the times are not related by the relevant gamma factor take the quotient $t_G / t_T >1 $:
+
+
+\begin{equation}
+\label{vi} \frac{t_G}{t_T} = \frac{7}{3 \sqrt{3}} \neq \frac{2}{\sqrt{3}} = \gamma 
+\end{equation}
+
+They are not related by the gamma factor. This is explained due to the fact that the gamma factor appears only when in one of the frames two events happen at the same place as in the case (v) where in the ball frame the position never changed.
+\end{document}
