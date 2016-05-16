@@ -1,0 +1,251 @@
+\documentclass[oneside]{book}
+\usepackage{braket}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{algpseudocode} 
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for the inclusion of images
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\usepackage{float}
+\usepackage{makeidx}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale = 0.42]{lcaoderecha}
+%	\caption{Eletr\'on ligado solo al núcleo derecho}
+%	\label{fig1}
+%	\end{figure}
+
+
+
+
+\begin{document}
+%\tableofcontents
+%\pagebreak
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+\textsc{\LARGE ELECTRODYNAMICS}\\[0.5cm]
+\textsc{\LARGE HOMEWORK }\\[0.5cm]
+\textsc{\large Lucas Varela Álvarez \\ 201226169}\\[0.5cm]
+\end{center}
+
+
+\textbf{1 The Lorentz force is: } 
+
+
+\begin{equation}
+\label{1} \vec{F}_L = e \left( \vec{E}(\vec{r},t) + \dot{\vec{q}}(t) \times \vec{B} ( \vec{r},t)\right)
+\end{equation}
+
+
+Using:
+
+\begin{equation}
+\label{2}  \vec{E} = - \nabla \phi - \frac{\partial \vec{A}}{\partial t}
+\end{equation}
+
+
+\begin{equation}
+\label{3}  \vec{B} = \nabla \times \vec{A}
+\end{equation}
+
+and $\vec{A} = \vec{A}(\vec{r},t)$, rewrite $\vec{F}_L$ in terms of $\phi$ and $\vec{A}$.\\
+
+\textbf{Solution:}\\
+
+Introducing the expressions of the fields in terms of the potential, the following expression is obtained:
+
+
+
+
+\begin{equation}
+\label{1.1} \vec{F}_L = e \left( - \nabla \phi - \frac{\partial \vec{A}}{\partial t} + \dot{\vec{q}}(t) \times \left( \nabla \times \vec{A}\right)    \right)
+\end{equation}
+
+
+
+Using the following vector identity:
+
+\begin{equation}
+\label{1.3} \nabla (\vec{a} \cdot \vec{b}) = (\vec{a}\cdot \nabla)\vec{b} + (\vec{b}\cdot \nabla)\vec{a} + \vec{a} \times (\nabla \times \vec{b}) + \vec{b} \times (\nabla \times \vec{a})
+\end{equation}
+
+
+Follows:
+
+
+
+\begin{equation}
+\label{1.2} \nabla ({\dot{\vec{q}}} \cdot \vec{A}) = (\dot{\vec{q}}\cdot \nabla)\vec{A} + (\vec{A}\cdot \nabla)\dot{\vec{q}} + \dot{\vec{q}} \times (\nabla \times \vec{A}) + \vec{A} \times (\nabla \times \dot{\vec{q}})
+\end{equation}
+
+The following terms are zero due to $\frac{\partial \dot{q}_i}{\partial q_k}=0$, in other words due to the fact that $\dot{q}_i$ and $q_k$ are independent coordinates.
+
+
+\begin{eqnarray}
+\label{1.4}  (\vec{A}\cdot \nabla)\dot{\vec{q}}=0\\
+\label{1.5} \vec{A} \times (\nabla \times \dot{\vec{q}}) = 0
+\end{eqnarray}
+
+Then
+
+\begin{equation}
+\label{1.6} \dot{\vec{q}} \times (\nabla \times \vec{A}) = \nabla ({\dot{\vec{q}}} \cdot \vec{A}) - (\dot{\vec{q}}\cdot \nabla)\vec{A}
+\end{equation}
+
+Finally the expression for the Lorentz force in terms of the vector potentials is:
+
+
+
+\begin{equation}
+\label{1.7} \vec{F}_L = e \left( - \nabla \phi - \frac{\partial \vec{A}}{\partial t} +   \nabla ({\dot{\vec{q}}} \cdot \vec{A}) - (\dot{\vec{q}}\cdot \nabla)\vec{A}  \right)
+\end{equation}
+
+\textbf{2. Show that the Lagrangian:}
+
+
+
+\begin{equation}
+\label{4}\mathscr{L} = \frac{1}{2} m \dot{\vec{q}}^{\;2} - e \phi + e\; \dot{\vec{q}} \cdot \vec{A}
+\end{equation}
+
+results into the right equation of motion with the Lorentz force.\\
+
+\textbf{Solution:}\\
+
+First the following derivatives are computed:
+
+
+\begin{equation}
+\label{2.1} \frac{\partial \mathscr{L}}{\partial{q_i}} = -e\frac{\partial \phi}{\partial q_i} + e\; \dot{\vec{q}} \cdot \frac{\partial \vec{A}}{\partial q_i}
+\end{equation}
+
+
+
+\begin{equation}
+\label{2.2} \frac{d}{dt} \frac{\partial \mathscr{L}}{\partial{\dot{q}_i}} = \frac{d}{dt}\left(m \dot{q}_i + e A_i\right) = m \ddot{q}_i + e \frac{d A_i}{dt}
+\end{equation}
+
+
+The last expression can be simplified changing the total derivative for the expression in terms of partial derivatives:
+
+
+
+\begin{equation}
+\label{2.3}  \frac{d A_i}{dt} =  \frac{\partial A_i}{\partial t} + \dot{q}_x \frac{\partial A_i}{\partial x} + \dot{q}_y \frac{\partial A_i}{\partial y} + \dot{q}_z\frac{\partial A_i}{\partial z} = \frac{\partial A_i}{\partial t} + \dot{\vec{q}} \cdot \nabla A_i
+\end{equation}
+
+Using the Euler-Lagrange equation:
+
+\begin{equation}
+\label{2.45} \frac{d}{dt} \frac{\partial \mathscr{L}}{\partial{\dot{q}_i}}  =  \frac{\partial \mathscr{L}}{\partial{q_i}}
+\end{equation}
+
+Follows:
+
+\begin{equation}
+\label{2.4}  m \ddot{q}_i + e \left(\frac{\partial A_i}{\partial t} + \dot{\vec{q}} \cdot \nabla A_i\right) =  -e\frac{\partial \phi}{\partial q_i} + e\; \dot{\vec{q}} \cdot \frac{\partial \vec{A}}{\partial q_i}
+\end{equation}
+
+
+In vector form:
+
+\begin{equation}
+\label{2.5}  m \ddot{\vec{q}} + e \left(\frac{\partial \vec{A}}{\partial t} + \left(\dot{\vec{q}} \cdot \nabla\right) \vec{A}\right) =  -e\nabla \phi + e\;  \nabla \left(\dot{\vec{q}} \cdot \vec{A}\right)
+\end{equation}
+
+Where it was used that $ \left[ \nabla \left(\dot{\vec{q}} \cdot \vec{A}\right)\right]_i  = \dot{\vec{q}} \cdot \frac{\partial \vec{A}}{\partial q_i} $ because $ \frac{\partial \dot{\vec{q}}}{\partial q_i} = 0$. Identifying $F= m \ddot{\vec{q}}\; $, follows:
+
+
+
+\begin{equation}
+\label{2.6} F =  -e\nabla \phi - e\frac{\partial \vec{A}}{\partial t} + e\;  \nabla \left(\dot{\vec{q}} \cdot \vec{A}\right)  -e\left(\dot{\vec{q}} \cdot \nabla\right) \vec{A}
+\end{equation}
+
+
+Which is the Lorentz force found in (\ref{1.7}).\\
+
+\textbf{3. Using:}
+
+
+
+
+\begin{equation}
+\label{5}\mathscr{H} =  \sum_i  p_i \dot{q}_i - \mathscr{L}
+\end{equation}
+
+
+where $p_i$ is the canonical momentum, derive $\mathscr{H}$ in terms of $\vec{p}$, $\vec{A}$ and $\phi$.\\
+
+\textbf{Solution:}\\
+
+The canonical conjugated momentum is given by:
+
+\begin{equation}
+\label{3.1}  p_k = \frac{\partial \mathscr{L}}{\partial \dot{q}_k} =  m \dot{q}_k + e A_k 
+\end{equation}
+
+Then the generalized velocities in terms of the canonical momentum are:
+
+\begin{equation}
+\label{3.2}     \dot{q}_k = \frac{p_k}{m} -\frac{e}{m} A_k    
+\end{equation}
+
+To write the Lagrangian in terms of the conjugated momentum the following quantities are computed:
+
+
+\begin{equation}
+\label{3.3}     \dot{\vec{q}} \cdot \dot{\vec{q}}  = \left(\frac{\vec{p}}{m} -\frac{e}{m} \vec{A}    \right)\cdot \left(\frac{\vec{p}}{m} -\frac{e}{m} \vec{A}    \right) = \frac{1}{m^2} \left( \vec{p}^{\;2} + e^2\vec{A}^{\;2} - 2e\; \vec{p}\cdot \vec{A}   \right)
+\end{equation}
+
+\begin{equation}
+\label{3.4} \dot{\vec{q}} \cdot \vec{A} = \left(\frac{\vec{p}}{m} -\frac{e}{m} \vec{A}    \right)\cdot\vec{A} = \frac{1}{m} \left(   \vec{p}\cdot \vec{A} -  e  \vec{A}^{\;2}  \right)
+\end{equation}
+
+With this the Lagrangian becomes:
+
+\begin{equation}
+\label{3.44} \mathscr{L}= \frac{1}{2m} \left( \vec{p}^{\;2} - e^2\vec{A}^{\;2} \right) - e \phi
+\end{equation}
+
+To get the Hamiltonian in terms of the canonical momentum the following identity is needed:
+
+\begin{equation}
+\label{3.5}  \sum_i  p_i \dot{q}_i = \vec{p} \cdot \dot{\vec{q}} = \vec{p} \cdot  \left(\frac{\vec{p}}{m} -\frac{e}{m} \vec{A}    \right) = \frac{1}{m} \left( \vec{p}^{\;2} - e\; \vec{p} \cdot \vec{A} \right)
+\end{equation}
+
+Finally the Hamiltonian is given by:
+
+\begin{equation}
+\label{3.6} \mathscr{H}= \frac{1}{2m} \left( \vec{p}^{\;2} + e^2\vec{A}^{\;2} \right) + e \phi - \frac{e}{m} \vec{p}\cdot \vec{A} = \frac{1}{2m} \left( \vec{p} - e\vec{A} \right)^2 + e \phi 
+\end{equation}
+
+\begin{equation}
+\label{3.7} \mathscr{H}= \frac{1}{2m} \left( \vec{p} - e\vec{A} \right)^2 + e \phi 
+\end{equation}
+
+
+\end{document}
